@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1105 &110500000
+HumanTemplate:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Naia Template
+  m_BoneTemplate:
+    Head: head
+    Hips: base
+    Left Index Distal: f1b.l_end
+    Left Index Intermediate: f1b.l
+    Left Index Proximal: f1a.l
+    Left Little Distal: f4b.l_end
+    Left Little Intermediate: f4b.l
+    Left Little Proximal: f4a.l
+    Left Middle Distal: f2b.l_end
+    Left Middle Intermediate: f2b.l
+    Left Middle Proximal: f2a.l
+    Left Ring Distal: f3b.l_end
+    Left Ring Intermediate: f3b.l
+    Left Ring Proximal: f3a.l
+    Left Thumb Distal: tc.l
+    Left Thumb Intermediate: tb.l
+    Left Thumb Proximal: ta.l
+    LeftFoot: foot.l
+    LeftHand: palm.l
+    LeftLowerArm: lowerarm.l
+    LeftLowerLeg: lowerleg.l
+    LeftShoulder: collar.l
+    LeftToes: toe.l
+    LeftUpperArm: upperarm.l
+    LeftUpperLeg: thigh.l
+    Neck: neck
+    Right Index Distal: f1b.r_end
+    Right Index Intermediate: f1b.r
+    Right Index Proximal: f1a.r
+    Right Little Distal: f4b.r_end
+    Right Little Intermediate: f4b.r
+    Right Little Proximal: f4a.r
+    Right Middle Distal: f2b.r_end
+    Right Middle Intermediate: f2b.r
+    Right Middle Proximal: f2a.r
+    Right Ring Distal: f3b.r_end
+    Right Ring Intermediate: f3b.r
+    Right Ring Proximal: f3a.r
+    Right Thumb Distal: tc.r
+    Right Thumb Intermediate: tb.r
+    Right Thumb Proximal: ta.r
+    RightFoot: foot.r
+    RightHand: palm.r
+    RightLowerArm: lowerarm.r
+    RightLowerLeg: lowerleg.r
+    RightShoulder: collar.r
+    RightToes: toe.r
+    RightUpperArm: upperarm.r
+    RightUpperLeg: thigh.r
+    Spine: chest
