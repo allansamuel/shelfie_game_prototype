@@ -5,19 +5,16 @@ using UnityEngine.Networking;
 
 public class QuestAPI : MonoBehaviour
 {
-    private string URL;
-    private int ChildProfileId;
+    private string BaseURL = "http://10.0.0.103:8080/child_completed_quest/";
 
-	public QuestAPI(){
-		AndroidJavaClass UnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"); 
-        AndroidJavaObject currentActivity = UnityPlayer.GetStatic<AndroidJavaObject>("UHVitoriaRegiaActivity");
-        ChildProfileId = currentActivity.Call<int>("CHILD_PROFILE_ID");
-		URL = currentActivity.Call<string>("SERVER_BASE_URL") + "/child_completed_quest/";
+	public QuestAPI()
+	{
+		
 	}
 
-    public IEnumerator CompleteQuestRequest(int QuestId)
+    public IEnumerator CompleteQuestRequest(string ChildProfileId, string QuestId)
     {
-        string requestUrl = $"{URL}/child_profile/{ChildProfileId}/quest/{QuestId}";
+        string requestUrl = $"{BaseURL}/child_profile/{int.Parse(ChildProfileId)}/quest/{int.Parse(QuestId)}";
 
         using(UnityWebRequest request = UnityWebRequest.Post(requestUrl, ""))
         {
@@ -25,13 +22,13 @@ public class QuestAPI : MonoBehaviour
             switch(request.result)
             {
                 case UnityWebRequest.Result.ConnectionError:
-                    print("Error " + request.result);
+                    print("Error: " + request.result);
                     break;
                 case UnityWebRequest.Result.ProtocolError:
-                    print("Error " + request.result);
+                    print("Error: " + request.result);
                     break;
                 case UnityWebRequest.Result.Success:
-                    print("Success " + request.result);
+                    print("Success: " + request.result);
                     break;
             }
                 

@@ -12,6 +12,8 @@ public class FixedButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public bool Pressed;
     [HideInInspector]
     private QuestAPI API;
+    [HideInInspector]
+    public string CurrentChildProfile;
     public Transform Player;
     public Transform ActionTarget;
 
@@ -19,13 +21,14 @@ public class FixedButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     void Start()
     {
         API = new QuestAPI();
+        setCurrentChildProfile("0");
     }
 
     // Update is called once per frame
     void Update()
     {
         if(Pressed) {
-            HandleAction();
+            HandleCompleteQuestAction();
         }
     }
 
@@ -39,13 +42,18 @@ public class FixedButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         Pressed = false;
     }
 
-    public void HandleAction()
+    public void HandleCompleteQuestAction()
     {
         float distance = Vector3.Distance(Player.position, ActionTarget.transform.position);
         if(distance <= 2f) {
             ActionTarget.transform.GetChild(0).GetComponent<Animator>().Play("All");
-            StartCoroutine(API.CompleteQuestRequest(int.Parse(ActionTarget.tag)));
+            StartCoroutine(API.CompleteQuestRequest(CurrentChildProfile, ActionTarget.tag));
         }
+    }
+
+    void setCurrentChildProfile(string ChildProfileId)
+    {
+        CurrentChildProfile = ChildProfileId;
     }
 
 }
