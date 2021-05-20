@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class QuestAPI : MonoBehaviour
 
 	public QuestAPI()
 	{
-		
+
 	}
 
     public IEnumerator CompleteQuestRequest(string ChildProfileId, string QuestId)
@@ -33,5 +34,44 @@ public class QuestAPI : MonoBehaviour
             }
                 
         }
+    }
+
+    public string getIntentData () {
+    #if (!UNITY_EDITOR && UNITY_ANDROID)
+        return CreatePushClass (new AndroidJavaClass ("com.unity3d.player.UnityPlayer"));
+    #endif
+        return string.Empty;
+    }
+
+    public string CreatePushClass (AndroidJavaClass UnityPlayer) {
+        AndroidJavaObject currentActivity = UnityPlayer.GetStatic<AndroidJavaObject> ("currentActivity");
+        AndroidJavaObject intent = currentActivity.Call<AndroidJavaObject> ("getIntent");
+        AndroidJavaObject extras = GetExtras (intent);
+        Debug.Log (extras);
+        return GetProperty (extras, "CHILD_PROFILE_ID");
+    }
+
+    private AndroidJavaObject GetExtras (AndroidJavaObject intent) {
+        AndroidJavaObject extras = null;
+
+        try {
+            extras = intent.Call<AndroidJavaObject> ("getExtras");
+        } catch (Exception e) {
+            Debug.Log (e.Message);
+        }
+
+        return extras;
+    }
+
+    private string GetProperty (AndroidJavaObject extras, string name) {
+        string s = string.Empty;
+
+        try {
+            s = extras.Call<string> ("getString", name);
+        } catch (Exception e) {
+            Debug.Log (e.Message);
+        }
+
+        return s;
     }
 }

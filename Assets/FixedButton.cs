@@ -21,7 +21,7 @@ public class FixedButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     void Start()
     {
         API = new QuestAPI();
-        setCurrentChildProfile("0");
+        CurrentChildProfile = API.getIntentData();
     }
 
     // Update is called once per frame
@@ -46,14 +46,8 @@ public class FixedButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
         float distance = Vector3.Distance(Player.position, ActionTarget.transform.position);
         if(distance <= 2f) {
-            ActionTarget.transform.GetChild(0).GetComponent<Animator>().Play("All");
+            ActionTarget.transform.GetChild(0).GetComponent<Animator>().Play("Open");
             StartCoroutine(API.CompleteQuestRequest(CurrentChildProfile, ActionTarget.tag));
         }
     }
-
-    void setCurrentChildProfile(string ChildProfileId)
-    {
-        CurrentChildProfile = ChildProfileId;
-    }
-
 }
