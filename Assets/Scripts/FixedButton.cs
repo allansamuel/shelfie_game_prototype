@@ -17,6 +17,7 @@ public class FixedButton : MonoBehaviour
     public string CurrentChildProfile;
     public Transform Player;
     public Transform ActionTarget;
+    public TextPanel TextPanelHandler;
 
     // Use this for initialization
     void Start()
@@ -28,7 +29,7 @@ public class FixedButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    	
+
     }
 
     public void HandleCompleteQuestAction()
@@ -38,6 +39,7 @@ public class FixedButton : MonoBehaviour
     	{
         	ActionTarget.transform.GetChild(0).GetComponent<Animator>().Play("Open");
         	StartCoroutine(API.CompleteQuestRequest(CurrentChildProfile, ActionTarget.tag));
+        	TextPanelHandler.SetText("Assim que Naiá abriu a misteriosa caixa na floresta, seu espírito se preencheu com determinação... Parabéns! Você concluiu com sucesso a missão ");
     	}
     }
 }
