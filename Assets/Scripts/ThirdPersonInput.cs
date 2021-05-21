@@ -21,7 +21,6 @@ public class ThirdPersonInput : MonoBehaviour
     {
         Control.Hinput = LeftJoystick.input.x;
         Control.Vinput = LeftJoystick.input.y;
-        Control.m_Crouch = Button.Pressed;
     }
 
 }

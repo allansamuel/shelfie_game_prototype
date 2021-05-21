@@ -6,14 +6,14 @@ using UnityEngine.Networking;
 
 public class QuestAPI : MonoBehaviour
 {
-	
+    
     [HideInInspector]
     private string BaseURL = "http://10.0.0.103:8080/child_completed_quest/";
 
-	public QuestAPI()
-	{
+    public QuestAPI()
+    {
 
-	}
+    }
 
     public IEnumerator CompleteQuestRequest(string ChildProfileId, string QuestId)
     {
@@ -41,7 +41,7 @@ public class QuestAPI : MonoBehaviour
     #if (!UNITY_EDITOR && UNITY_ANDROID)
         return CreatePushClass (new AndroidJavaClass ("com.unity3d.player.UnityPlayer"));
     #endif
-        return "0";
+        return "5";
     }
 
     public string CreatePushClass (AndroidJavaClass UnityPlayer) {
