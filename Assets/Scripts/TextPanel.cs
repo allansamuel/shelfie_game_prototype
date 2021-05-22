@@ -5,9 +5,14 @@ using UnityEngine.UI;
 
 public class TextPanel : MonoBehaviour
 {
-	public GameObject PanelObject;
-	public Text TextObject;
+	[HideInInspector]
 	public string TextString;
+	public Text TextObject;
+	public GameObject PanelObject;
+	public GameObject LeftJoystick;
+	public GameObject TouchField;
+	public GameObject ActionButton;
+	public GameObject PanelButton;
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +23,34 @@ public class TextPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ToggleControllers();
     }
 
     public void SetText(string NewText)
     {
     	TextObject.text = NewText;
         PanelObject.SetActive(true);
+    }
+
+	public void HidePanel()
+    {
+        PanelObject.SetActive(false);
+        ToggleControllers();
+    }
+
+    public void ToggleControllers()
+    {
+    	if(PanelObject.activeSelf)
+    	{
+        	LeftJoystick.SetActive(false);
+        	TouchField.SetActive(false);
+        	ActionButton.SetActive(false);
+    	}
+    	else
+    	{
+        	LeftJoystick.SetActive(true);
+        	TouchField.SetActive(true);
+        	ActionButton.SetActive(true);
+    	}
     }
 }

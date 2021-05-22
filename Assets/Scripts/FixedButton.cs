@@ -39,7 +39,7 @@ public class FixedButton : MonoBehaviour
     	{
         	ActionTarget.transform.GetChild(0).GetComponent<Animator>().Play("Open");
         	StartCoroutine(API.CompleteQuestRequest(CurrentChildProfile, ActionTarget.tag));
-        	TextPanelHandler.SetText("Assim que Naiá abriu a misteriosa caixa na floresta, seu espírito se preencheu com determinação... Parabéns! Você concluiu com sucesso a missão ");
+        	TextPanelHandler.SetText("Assim que Naiá abriu a misteriosa caixa na floresta, ela sentiu seu espírito se enchendo com determinação... Parabéns. Você concluiu a missão com sucesso!");
     	}
     }
 }

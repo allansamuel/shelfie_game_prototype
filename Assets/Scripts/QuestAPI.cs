@@ -8,7 +8,7 @@ public class QuestAPI : MonoBehaviour
 {
     
     [HideInInspector]
-    private string BaseURL = "http://10.0.0.103:8080/child_completed_quest/";
+    private string BaseURL = "http://10.0.0.103:8080/quest";
 
     public QuestAPI()
     {
@@ -17,7 +17,7 @@ public class QuestAPI : MonoBehaviour
 
     public IEnumerator CompleteQuestRequest(string ChildProfileId, string QuestId)
     {
-        string requestUrl = $"{BaseURL}/child_profile/{int.Parse(ChildProfileId)}/quest/{int.Parse(QuestId)}";
+        string requestUrl = $"{BaseURL + "_complete"}/child_profile/{int.Parse(ChildProfileId)}/quest/{int.Parse(QuestId)}";
 
         using(UnityWebRequest request = UnityWebRequest.Post(requestUrl, ""))
         {

@@ -5,8 +5,8 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class ThirdPersonInput : MonoBehaviour
 {
+    protected ThirdPersonUserControl Control;
 	public FixedJoystick LeftJoystick;
-	protected ThirdPersonUserControl Control;
 	public FixedTouchField TouchField;
 	public FixedButton Button;
 
