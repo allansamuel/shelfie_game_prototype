@@ -13,6 +13,7 @@ public class TextPanel : MonoBehaviour
 	public GameObject TouchField;
 	public GameObject ActionButton;
 	public GameObject PanelButton;
+	public GameObject CloseButton;
 
     // Start is called before the first frame update
     void Start()
@@ -45,12 +46,14 @@ public class TextPanel : MonoBehaviour
         	LeftJoystick.SetActive(false);
         	TouchField.SetActive(false);
         	ActionButton.SetActive(false);
+        	CloseButton.SetActive(false);
     	}
     	else
     	{
         	LeftJoystick.SetActive(true);
         	TouchField.SetActive(true);
         	ActionButton.SetActive(true);
+        	CloseButton.SetActive(true);
     	}
     }
 }
